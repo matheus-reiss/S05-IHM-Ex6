@@ -1,0 +1,172 @@
+:root {
+  --frequencia: #126ae2;
+  --nota: #126ae2;
+  --prova: #ff5722;
+  
+  /* Tema Claro */
+  --background-color-light: #f5f5f5;  /* Permanece claro */
+  --text-color-light: #333333;
+  --box-background-light: #076347;    /* Verde MUITO mais escuro para o container */
+  --box-shadow-light: 0 4px 15px rgba(0, 0, 0, 0.1);
+  --border-color-light: #054d37;      /* Borda ainda mais escura */
+  
+  /* Tema Escuro - mantido como está */
+  --background-color-dark: #121212;
+  --text-color-dark: #ffffff;
+  --box-background-dark: #333333;
+  --box-shadow-dark: 0 4px 15px rgba(0, 0, 0, 0.3);
+  --border-color-dark: #444444;
+}
+
+body {
+  font-family: 'Arial', sans-serif;
+  background-color: var(--background-color-light);
+  color: var(--text-color-light);
+  margin: 0;
+  padding: 20px;
+  transition: background-color 0.3s ease, color 0.3s ease;
+}
+
+.comp-aula {
+  background: #B8E6B8 !important; /*  sobrescreve qualquer estilo */
+  border: 1px solid #054d37;
+  border-radius: 12px;
+  box-shadow: var(--box-shadow-light);
+  padding: 15px;
+  margin-bottom: 15px;
+  transition: all 0.3s ease;
+  position: relative;
+  color: white; /* Mantém o texto branco para contraste */
+}
+
+.comp-aula:hover {
+  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.15);
+  transform: translateY(-5px);
+}
+
+.titulo_aula {
+  font-weight: bold;
+  font-size: 18px;
+  color: rgb(0, 0, 0); /* Mudado para branco para contraste com o fundo verde */
+}
+
+.p {
+  color: #222222; /* Texto ligeiramente translúcido para hierarquia */
+}
+/* Novo container para faltas e CR */
+.info-container {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+  justify-content: flex-start; /* Alinha à esquerda */
+  width: 100%;
+}
+
+.lables {
+  display: flex;
+  gap: 10px;
+  margin-top: 10px;
+}
+/* Ajuste do container de prova para ocupar toda a largura */
+.lable-prova {
+  background-color: #6ec16e !important;
+  font-size: 1.1em;
+  padding: 8px 15px;
+  border-radius: 20px;
+  color: #222222;
+  text-align: center;
+  width: 100%; /* Ocupa toda a largura */
+  margin-bottom: 10px; /* Espaço entre a prova e o restante do conteúdo */
+  box-sizing: border-box;
+}
+.lable-frequencia{
+  background-color: #6ec16e !important;
+  padding: 8px 15px;
+  border-radius: 20px;
+  color: #222222;
+  text-align: center;
+  font-size: 0.9em;
+  width: auto; 
+  min-width: 95px; /* Define uma largura mínima */
+  max-width: 100px;
+}
+.lable-nota {
+  padding: 8px 15px;
+  border-radius: 15px;
+  color: #222222;
+  text-align: center;
+  font-size: 0.9em;
+  width: auto; 
+  min-width: 40px; /* Define uma largura mínima */
+  max-width: 100px;
+}
+
+.lable-prova {
+  background-color: var(--prova);
+  font-size: 1.1em;
+}
+
+.lable-frequencia  {
+  background-color: var(--frequencia);
+  font-size: 1.1em;
+  flex: 0;
+}
+
+.lable-nota {
+  /* Cores dinâmicas definidas no JavaScript */
+  font-size: 1.1em; 
+  flex: 0;
+}
+
+.p_lable {
+  font-size: 14px;
+}
+
+/* Tema Escuro */
+[data-theme="dark"] .comp-aula,
+:host-context(.tema-dark) .comp-aula {
+  background: #444444 !important;
+  border: 1px solid var(--border-color-dark);
+  box-shadow: var(--box-shadow-dark);
+  color:  #ffffff;
+}
+
+[data-theme="dark"] .comp-aula:hover,
+:host-context(.tema-dark) .comp-aula:hover {
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.15); /* Sombra mais clara no hover do tema escuro */
+}
+
+[data-theme="dark"] .titulo_aula,
+:host-context(.tema-dark) .titulo_aula {
+  color: var(--text-color-dark);
+}
+[data-theme="dark"] .p,
+:host-context(.tema-dark) .p {
+ color: #FFFFFF;;
+}
+[data-theme="dark"] .lable-prova,
+:host-context(.tema-dark) .lable-prova {
+  background: #9c9a9a !important;
+  color: #ffffff !important; 
+}
+[data-theme="dark"] .lable-nota,
+:host-context(.tema-dark) .lable-nota {
+  color: #ffffff !important; 
+}
+[data-theme="dark"] .lable-frequencia,
+:host-context(.tema-dark) .lable-frequencia {
+  background: #9c9a9a !important;
+  color: #ffffff !important;
+}
+
+
+/* Adequando o componente para funcionar com as classes de tema do documento principal */
+:host-context(.tema-inatel) .comp-aula {
+  background: var(--box-background-light);
+  border: 1px solid var(--border-color-light);
+}
+
+:host-context(.tema-dark) .comp-aula {
+  background: var(--box-background-dark);
+  border: 1px solid var(--border-color-dark);
+}
